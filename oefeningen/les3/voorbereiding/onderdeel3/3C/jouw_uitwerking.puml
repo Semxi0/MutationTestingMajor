@@ -1,0 +1,12 @@
+@startuml
+
+actor "Medewerker" as medewerker
+participant "app:\nBestelApp" as app
+participant "bestelling:\nBestelling" as bestelling
+participant "bestelregel:\nBestelRegel" as bestelregel
+participant "product:\nProduct" as product
+database Store
+
+medewerker -> app: veranderAantal(aantal)
+
+@enduml

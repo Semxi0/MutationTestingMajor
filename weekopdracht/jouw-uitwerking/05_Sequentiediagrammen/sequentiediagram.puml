@@ -1,0 +1,16 @@
+@startuml
+
+autonumber
+
+actor "Festival\nbezoeker" as bezoeker
+participant "app:\nFesitvalApp" as app
+database Store
+
+bezoeker -> app : voegVertoningToe(\n\
+    datum,\n\
+    starttijd,\n\
+    eindtijd,\n\
+    filmId,\n\
+    dagplanningId)
+
+@enduml

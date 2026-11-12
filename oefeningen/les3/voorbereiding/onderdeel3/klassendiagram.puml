@@ -1,0 +1,28 @@
+@startuml
+hide circle
+
+
+
+class Bestelling <<Entity>> {
+    id
+    budget
+    totaalPrijs
+    berekenTotaalPrijs()
+}
+
+class BestelRegel <<Entity>> {
+    id
+    productAantal
+    productPrijs
+}
+
+class Product <<Entity>> {
+    id
+    prijs
+}
+
+
+Bestelling "1" -r- "*" BestelRegel
+BestelRegel "*" -r- "1" Product
+
+@enduml
