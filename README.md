@@ -83,3 +83,9 @@ Een praktisch pluspunt is dat de ZIP een klein voorbeeld, uitvoerscripts en een 
 - [Major – tutorial bij het Triangle-voorbeeld](https://mutation-testing.org/tutorial.html)
 - [Oracle – releasedatum van JDK 21](https://www.oracle.com/java/technologies/javase/21-relnote-issues.html)
 - CNI Software Architecture Document, §6.4.4. Testbewijs: lokale Git Bash-uitvoer van de twee proeven.
+
+## Concrete tabel
+| Pluspunten van Major | Minpunten van Major |
+|---|---|
+| De ZIP bevat een handleiding, startscripts en een werkend voorbeeldproject om de installatie te testen. | De mutator crashte in onze proeven op zowel JDK 21 als JDK 24. Dat maakt Major 3.0.1 ongeschikt voor de geteste Java 21-opstelling. |
+| Met MML kun je instellen welke code Major muteert en welke wijzigingen het mag maken. | Het voorbeeldscript gebruikt een classpath met `:`. Dat gaf op Windows vermoedelijk een extra probleem bij het compileren van de test. |
