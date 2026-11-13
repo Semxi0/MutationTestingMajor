@@ -1,5 +1,10 @@
 # Onderzoek naar mutation testing met Major
 
+TL;DR
+
+**Gebruik Major niet voor CNI-project.**
+
+
 Kan Major mutanten genereren en testen binnen de Java-build van het CNI-project, en hoeveel moeite kost de installatie? Dit individuele onderzoek levert input voor de gezamenlijke ADR waarin Major wordt vergeleken met PIT, PIT + Descartes en LittleDarwin.
 
 **Voorlopige uitkomst.** De gewone compilatie van de voorbeeldklasse `triangle/Triangle.java` slaagde met Temurin 21.0.12.1. De compilatie met de Major-plugin stopte met dezelfde fout als bij de eerdere proef met JDK 24.0.2. Er is nog geen geslaagde mutation run en dus ook geen meting van de mutation score of de snelheid.
