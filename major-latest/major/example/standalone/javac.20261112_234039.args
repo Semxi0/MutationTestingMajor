@@ -1,0 +1,4 @@
+-cp
+C:/Users/semxi/Downloads/major-latest/major/lib/major.jar
+"-Xplugin:MajorPlugin mml:../..//mml/tutorial.mml.bin"
+triangle/Triangle.java

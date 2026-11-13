@@ -1,0 +1,102 @@
++ MAJOR_HOME=../../
++ echo '- Running javac without the mutation plugin'
+- Running javac without the mutation plugin
++ echo '  (javac triangle/Triangle.java)'
+  (javac triangle/Triangle.java)
++ javac triangle/Triangle.java
++ echo
+
++ echo '- Running javac with the major mutation plugin enabled'
+- Running javac with the major mutation plugin enabled
++ echo '  ($MAJOR_HOME/bin/major --mml $MAJOR_HOME/mml/tutorial.mml.bin triangle/Triangle.java)'
+  ($MAJOR_HOME/bin/major --mml $MAJOR_HOME/mml/tutorial.mml.bin triangle/Triangle.java)
++ ../..//bin/major --mml ../..//mml/tutorial.mml.bin triangle/Triangle.java
+An exception has occurred in the compiler (21.0.12.1). Please file a bug against the Java compiler via the Java bug reporting page (https://bugreport.java.com) after checking the Bug Database (https://bugs.java.com) for duplicates. Include your program, the following diagnostic, and the parameters passed to the Java compiler in your report. Thank you.
+com.sun.tools.javac.util.ClientCodeException: java.lang.NoSuchMethodError: 'boolean com.sun.tools.javac.code.Symbol$VarSymbol.isLocal()'
+	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:880)
+	at jdk.compiler/com.sun.tools.javac.api.MultiTaskListener.finished(MultiTaskListener.java:133)
+	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1436)
+	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1393)
+	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.compile(JavaCompiler.java:976)
+	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:319)
+	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:178)
+	at jdk.compiler/com.sun.tools.javac.Main.compile(Main.java:64)
+	at jdk.compiler/com.sun.tools.javac.Main.main(Main.java:50)
+Caused by: java.lang.NoSuchMethodError: 'boolean com.sun.tools.javac.code.Symbol$VarSymbol.isLocal()'
+	at org.mutationtesting.major.mutation.Mutator.visitVarDef(Mutator.java:834)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCVariableDecl.accept(JCTree.java:1022)
+	at jdk.compiler/com.sun.tools.javac.tree.TreeTranslator.translate(TreeTranslator.java:58)
+	at org.mutationtesting.major.mutation.Mutator.translate(Mutator.java:522)
+	at jdk.compiler/com.sun.tools.javac.tree.TreeTranslator.translateVarDefs(TreeTranslator.java:78)
+	at jdk.compiler/com.sun.tools.javac.tree.TreeTranslator.visitMethodDef(TreeTranslator.java:148)
+	at org.mutationtesting.major.mutation.Mutator.visitMethodDef(Mutator.java:740)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCMethodDecl.accept(JCTree.java:916)
+	at jdk.compiler/com.sun.tools.javac.tree.TreeTranslator.translate(TreeTranslator.java:58)
+	at org.mutationtesting.major.mutation.Mutator.translate(Mutator.java:522)
+	at org.mutationtesting.major.mutation.Mutator.visitClassDef(Mutator.java:694)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCClassDecl.accept(JCTree.java:814)
+	at jdk.compiler/com.sun.tools.javac.tree.TreeTranslator.translate(TreeTranslator.java:58)
+	at org.mutationtesting.major.mutation.Mutator.translate(Mutator.java:522)
+	at org.mutationtesting.major.mutation.Mutator.mutateTree(Mutator.java:488)
+	at org.mutationtesting.major.plugin.MajorPluginTaskListener.mutate(MajorPluginTaskListener.java:321)
+	at org.mutationtesting.major.plugin.MajorPluginTaskListener.lambda$finished$1(MajorPluginTaskListener.java:123)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at org.mutationtesting.major.plugin.MajorPluginTaskListener.finished(MajorPluginTaskListener.java:123)
+	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:876)
+	... 8 more
+printing javac parameters to: C:\Users\semxi\Downloads\major-latest\major\example\standalone\javac.20261112_234039.args
++ echo
+
++ echo '- Compiling test case (major-rt.jar has to be on the classpath!)'
+- Compiling test case (major-rt.jar has to be on the classpath!)
++ echo '  (javac -cp .:$MAJOR_HOME/lib/major-rt.jar TriangleTest.java)'
+  (javac -cp .:$MAJOR_HOME/lib/major-rt.jar TriangleTest.java)
++ javac -cp .:../..//lib/major-rt.jar TriangleTest.java
+TriangleTest.java:1: error: package major.mutation does not exist
+import major.mutation.Config;
+                     ^
+TriangleTest.java:2: error: package triangle does not exist
+import triangle.Triangle;
+               ^
+TriangleTest.java:9: error: cannot find symbol
+        Config.__M_NO=0;
+        ^
+  symbol:   variable Config
+  location: class TriangleTest
+TriangleTest.java:10: error: cannot find symbol
+        System.out.println("Original Result: "+Triangle.classify(1,1,1));
+                                               ^
+  symbol:   variable Triangle
+  location: class TriangleTest
+TriangleTest.java:14: error: cannot find symbol
+        List<Integer> l = Config.getCoverageList();
+                          ^
+  symbol:   variable Config
+  location: class TriangleTest
+TriangleTest.java:20: error: cannot find symbol
+        Config.reset();
+        ^
+  symbol:   variable Config
+  location: class TriangleTest
+TriangleTest.java:26: error: cannot find symbol
+            Config.__M_NO=mut;
+            ^
+  symbol:   variable Config
+  location: class TriangleTest
+TriangleTest.java:27: error: cannot find symbol
+            System.out.println(mut+": "+Triangle.classify(1,1,1));
+                                        ^
+  symbol:   variable Triangle
+  location: class TriangleTest
+8 errors
++ echo
+
++ echo '- Executing test case (major-rt.jar has to be on the classpath!)'
+- Executing test case (major-rt.jar has to be on the classpath!)
++ echo '  (java -cp .:$MAJOR_HOME/lib/major-rt.jar TriangleTest)'
+  (java -cp .:$MAJOR_HOME/lib/major-rt.jar TriangleTest)
++ echo
+
++ java -cp .:../..//lib/major-rt.jar TriangleTest
+Error: Could not find or load main class TriangleTest
+Caused by: java.lang.ClassNotFoundException: TriangleTest

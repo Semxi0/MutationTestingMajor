@@ -1,0 +1,16 @@
+[11/26 23:40:39] [INFO   ] org.mutationtesting.major.plugin.MajorPluginTaskListener.<init>:
+    Created MajorPluginTaskListener with options: [mml:../..//mml/tutorial.mml.bin]
+[11/26 23:40:39] [INFO   ] org.mutationtesting.major.mutation.Mutator.initOperatorSymbols:
+    Initializing operator symbols for opcode mapping
+[11/26 23:40:39] [INFO   ] org.mutationtesting.major.mutation.Mutator.mutateTree:
+    Mutating tree: Env[AttrContext[Scope[super, this]],outer=Env[AttrContext[Scope[triangle.Triangle]]]]
+[11/26 23:40:39] [INFO   ] org.mutationtesting.major.mutation.Mutator.visitClassDef:
+    CLASS: triangle.Triangle
+[11/26 23:40:39] [INFO   ] org.mutationtesting.major.mutation.Mutator.visitMethodDef:
+    METHOD: <init>([])null
+[11/26 23:40:39] [INFO   ] org.mutationtesting.major.mutation.Mutator.visitClassDef:
+    CLASS: triangle.Triangle$TriangleType
+[11/26 23:40:39] [INFO   ] org.mutationtesting.major.mutation.Mutator.visitMethodDef:
+    METHOD: <init>([])null
+[11/26 23:40:39] [INFO   ] org.mutationtesting.major.mutation.Mutator.visitMethodDef:
+    METHOD: classify([int a, int b, int c])TriangleType
